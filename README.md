@@ -54,6 +54,53 @@ built and operated solo. Nine modules over one live market-data spine.
 
 ---
 
+## 🔬 Indian Markets Toolkit – open source
+
+**[algo-backtesting-platform](https://github.com/AnupamaJain/algo-backtesting-platform)** –
+three self-hosted tools in one repository: **VriddhiX**, a pattern-research platform;
+a strategy backtester; and a live options-trading dashboard for NIFTY/SENSEX.
+
+VriddhiX is the part I would point at. It finds chart structure in NSE equities – volatility
+contraction bases, breaks of market structure, fair value gaps – places each setup in market
+and sector context, scores it, and then records what actually happened next. Including every
+time it was wrong.
+
+**What it measures**
+
+| Engine | Finds |
+|---|---|
+| VCP | Contraction bases – prior trend, contractions, pivot, breakout |
+| Market structure | Swings, BOS, CHoCH, order blocks, liquidity sweeps |
+| Fair value gaps | Three-candle imbalances, tracked to mitigation |
+| Market regime | Five weighted components with hysteresis, or an explicit refusal |
+| Relative strength | Percentile rank across the universe, four blended horizons |
+| Sector rotation | Equal-weight aggregation into leading / improving / weakening / lagging |
+
+**Engineering decisions I would call out**
+
+- **One implementation of every rule** – the live scanner, the backtester and the historical
+  X-Ray call the same function objects. There is no second implementation to drift from, and a
+  test walks the syntax tree to enforce it rather than trusting convention.
+- **Nothing may see the future** – a value dated *t* depends only on bars dated *≤ t*, verified
+  by truncating history, recomputing and demanding identical output. A look-ahead bug never
+  crashes; it produces a backtest that looks excellent and means nothing.
+- **It says what it does not know** – an unranked sector reads `null`, not `0`. A win rate over
+  zero resolved trades is `null`, not `0%`. Absence is never quietly rendered as a bearish
+  number, all the way through to the JSON.
+- **Failures are kept** – failed breakouts stay in the ledger with their reason, and no view
+  drops them by default. A hit rate computed over survivors is the single most flattering lie a
+  research tool can tell.
+- **Bias travels with the numbers** – a backtest that cannot resolve point-in-time index
+  membership says so in its own results payload, not in documentation nobody reads.
+
+**Stack** – Python · FastAPI · SQLAlchemy 2.0 · Alembic · pandas/numpy · SQLite → Postgres
+/ TimescaleDB · 436 tests including no-look-ahead and engine-purity suites.
+
+> Research and execution tooling, not advice. Not SEBI registered. The trading dashboard
+> ships in dry-run mode; VriddhiX has no trading path at all.
+
+---
+
 ## 🤖 Agentic AI & LLM engineering
 
 Public repositories, mostly around putting LLMs behind guardrails rather than in front of them:
