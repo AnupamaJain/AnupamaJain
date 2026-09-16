@@ -54,13 +54,14 @@ built and operated solo. Nine modules over one live market-data spine.
 
 ---
 
-## 🔬 Indian Markets Toolkit – open source
+## 🔬 Tathya – open-source pattern research
 
 **[algo-backtesting-platform](https://github.com/AnupamaJain/algo-backtesting-platform)** –
-three self-hosted tools in one repository: **VriddhiX**, a pattern-research platform;
-a strategy backtester; and a live options-trading dashboard for NIFTY/SENSEX.
+three self-hosted tools in one repository: **Tathya**, a pattern-research
+platform; a strategy backtester; and a live options-trading dashboard for
+NIFTY/SENSEX.
 
-VriddhiX is the part I would point at. It finds chart structure in NSE equities – volatility
+Tathya – तथ्य, "that which is so" – is the part I would point at. It finds chart structure in NSE equities – volatility
 contraction bases, breaks of market structure, fair value gaps – places each setup in market
 and sector context, scores it, and then records what actually happened next. Including every
 time it was wrong.
@@ -94,10 +95,10 @@ time it was wrong.
   membership says so in its own results payload, not in documentation nobody reads.
 
 **Stack** – Python · FastAPI · SQLAlchemy 2.0 · Alembic · pandas/numpy · SQLite → Postgres
-/ TimescaleDB · 436 tests including no-look-ahead and engine-purity suites.
+/ TimescaleDB · 451 tests including no-look-ahead and engine-purity suites.
 
 > Research and execution tooling, not advice. Not SEBI registered. The trading dashboard
-> ships in dry-run mode; VriddhiX has no trading path at all.
+> ships in dry-run mode; Tathya has no trading path at all.
 
 ---
 
