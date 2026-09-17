@@ -54,14 +54,14 @@ built and operated solo. Nine modules over one live market-data spine.
 
 ---
 
-## 🔬 Tathya – open-source pattern research
+## 🔬 Pramana – open-source pattern research
 
 **[algo-backtesting-platform](https://github.com/AnupamaJain/algo-backtesting-platform)** –
-three self-hosted tools in one repository: **Tathya**, a pattern-research
+three self-hosted tools in one repository: **Pramana**, a pattern-research
 platform; a strategy backtester; and a live options-trading dashboard for
 NIFTY/SENSEX.
 
-Tathya – तथ्य, "that which is so" – is the part I would point at. It finds chart structure in NSE equities – volatility
+Pramana – प्रमाण, the valid means by which something is known – is the part I would point at. It finds chart structure in NSE equities – volatility
 contraction bases, breaks of market structure, fair value gaps – places each setup in market
 and sector context, scores it, and then records what actually happened next. Including every
 time it was wrong.
@@ -98,7 +98,7 @@ time it was wrong.
 / TimescaleDB · 451 tests including no-look-ahead and engine-purity suites.
 
 > Research and execution tooling, not advice. Not SEBI registered. The trading dashboard
-> ships in dry-run mode; Tathya has no trading path at all.
+> ships in dry-run mode; Pramana has no trading path at all.
 
 ---
 
